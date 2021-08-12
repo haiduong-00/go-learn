@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	M := 1
-	N := 5
+	M := 9
+	N := 18
 	for M != N {
 		if M == N {
 			fmt.Println("UCLN", M)
