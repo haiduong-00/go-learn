@@ -12,5 +12,5 @@ func main() {
 			N = N - M
 		}
 	}
-	fmt.Println("UCLN cua M, N la", M)
+	fmt.Printf("UCLN cua M, N la %v", M)
 }
