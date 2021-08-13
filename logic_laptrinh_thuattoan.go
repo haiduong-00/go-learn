@@ -10,6 +10,7 @@ func main() {
 	//S = 1/(a+0) + 1/(a+1) + ... + 1/(a+100)
 
 	//Phân tích và đưa ra hướng giải quyết (thuật toán) //Logic
+	//Xây dựng mô hình những nguyên liệu cần thiết
 
 	//Sử dụng for để tạo số chạy tăng dần
 	// 1/(a+i)
@@ -20,6 +21,8 @@ func main() {
 	//Thực hành
 	//Viết đúng syntax, statement
 	//Quy tắc của ngôn ngữ sử dụng
+
+	//Viết code xong Commit 1 lần
 
 	//If và else (else if) là 1 statement
 
