@@ -9,6 +9,10 @@ import (
 
 func main() {
 	for i := 65; i <= 90; i++ {
-		fmt.Printf("%c", i)
+		fmt.Printf("%v %c\n", i, i)
+	}
+	fmt.Println()
+	for i := 0x30a3; i <= 0x3103; i++ {
+		fmt.Printf("%#x %c\n", i, i)
 	}
 }
