@@ -4,6 +4,12 @@
 //Nếu a == 1 thì thoát khỏi vòng lặp
 //Cuối cùng in ra số lần lặp
 
+//Vấn đề nào cũng có đề bài cả (Con cá nguyên chất)
+//Đề bài là vật liệu thô
+//Thuật toán là đã sơ chế (Con cá đã làm vẩy, ướp muối)
+//Những thứ cần thiết cho đoạn code (Gia vị)
+//Nó cần được chế biến thành đồ dùng được, đồ ăn được
+
 //for, a != 1, if, %:mod: chia lấy dư, a(biến), i :biến, nó có thể được truy cập ở ngoài vòng for
 package main
 
