@@ -3,16 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	M := 15
-	N := 5
-	for {
-		if M == N {
-			fmt.Println("UCLN", M)
-			break
-		} else if M > N {
-			M = M - N
-		} else {
-			N = N - M
+	for i := 9; i <= 21; i = i + 2 {
+		for j := 9; j <= 11; j++ {
+			fmt.Println(j * 30 * 120)
 		}
 	}
 }
