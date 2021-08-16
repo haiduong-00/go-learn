@@ -48,14 +48,14 @@ func main() {
 		fmt.Println("run that", i)
 	}
 
-	/*Đang trong chat
+	Đang trong chat
 	switch {
 	case co tin nhan: //Không
 		rep()
 		fallthrough //đưa mình dến hành động phía dưới luôn
 	case muốn chờ tin nhắn không:
 		chotinnhan(2s)
-	} */
+	}
 
 	//Logic lập trình for if switch, logic toán học: false true
 	//nếu là trường hợp: thì dùng if/switch, nếu có biến chạy, số chạy hay một thứ gì đó lặp đi lặp lại: for
