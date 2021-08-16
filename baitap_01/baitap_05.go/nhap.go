@@ -21,7 +21,7 @@ func main() {
 
 	//Expression only
 
-	S = 30*sotien_1_khach_chi + 120*(12-11+1)*sotien_1_khach_chi + 40*(17-13+1)*sotien_1_khach_chi + 150*(21-18)*sotien_1_khach_chi
+	S = 30*sotien_1_khach_chi*(11-9) + 120*(12-11+1)*sotien_1_khach_chi + 40*(17-13+1)*sotien_1_khach_chi + 150*(21-18)*sotien_1_khach_chi
 
 	fmt.Println("Tổng doanh thu 1 ngày của nhà hàng là:", S, "nghìn vnđ")
 }
