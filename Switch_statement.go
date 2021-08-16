@@ -57,7 +57,8 @@ func main() {
 		chotinnhan(2s)
 	} */
 
-	//Logic lập trình for if //nếu là trường hợp: thì dùng if, nếu có biến chạy, số chạy hay một thứ gì đó lặp đi lặp lại: for, switch, logic toán học: false true
+	//Logic lập trình for if switch, logic toán học: false true
+	//nếu là trường hợp: thì dùng if/switch, nếu có biến chạy, số chạy hay một thứ gì đó lặp đi lặp lại: for
 	//if lồng trong for: trong khi chạy for, mà đạt đến điều kiện if thì thực hiện cái gì đó
 	//switch case == if nhưng ở dạng viết khác, cùng một mẹ Conditional
 
