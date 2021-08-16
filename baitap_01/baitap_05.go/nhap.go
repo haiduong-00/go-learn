@@ -3,18 +3,25 @@ package main
 import "fmt"
 
 func main() {
+	const sotien_1_khach_chi = 120
 	S := 0
 	for i := 9; i < 21; i++ {
-		if 9 <= i < 11 {
-			fmt.Println(S + i*30*120)
-		} else if 11 <= i < 13 {
-			fmt.Println(S + i*120*120)
-		} else if 13 <= i < 18 {
-			fmt.Println(S + i*40*120)
-		} else if 18 <= i < 21 {
-			fmt.Println(S + i*150*120)
+		if (i >= 9) && (i < 11) {
+			S += 30 * sotien_1_khach_chi
+		} else if (i >= 11) && (i < 13) {
+			S += 120 * sotien_1_khach_chi
+		} else if (i >= 13) && (i < 18) {
+			S += 40 * sotien_1_khach_chi
+		} else if (i >= 18) && (i < 21) {
+			S += 150 * sotien_1_khach_chi
 		}
 	}
-	fmt.Println("S")
 
+	fmt.Println("Tổng doanh thu 1 ngày của nhà hàng là:", S, "nghìn vnđ")
+
+	//Expression only
+
+	S = 30*sotien_1_khach_chi + 120*(12-11+1)*sotien_1_khach_chi + 40*(17-13+1)*sotien_1_khach_chi + 150*(21-18)*sotien_1_khach_chi
+
+	fmt.Println("Tổng doanh thu 1 ngày của nhà hàng là:", S, "nghìn vnđ")
 }
