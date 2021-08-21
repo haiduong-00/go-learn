@@ -5,8 +5,11 @@ import (
 )
 
 func main() {
-	x := [10]int{2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021}
-	for i, v := range x {
-		fmt.Println(i, v)
+	x := []int{2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021}
+	for _, v:= range x {
+		switch {
+		case v >= 2019:
+			fmt.Println(v, "covid")
+		}
 	}
 }
