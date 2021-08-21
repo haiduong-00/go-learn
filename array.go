@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	aint := []int{1, 2, 3}
+	aint := [3]int{1, 2, 3}
 
 	
 	// string literal: một đoạn string gắn sẵn, và không thay đổi (optional)
