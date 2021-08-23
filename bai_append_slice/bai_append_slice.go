@@ -44,5 +44,5 @@ func main() {
 		x[i] = append(x[i], 10)
 
 	}
-	fmt.Println(len(x))
+	fmt.Println(x)
 }
