@@ -95,6 +95,10 @@ func main() {
 		name: "Jake",
 		// isDog: false,
 	}
+	// Anonymous: bí ẩn
+	// Chỉ sử dụng khi lưu kết quả ngắn hạn
+	// Đăng ký tài khoản: mã OTP: hệ thống lưu tạm vào anonymous struct. Khi nào người dùng nhập đúng thì bỏ (xóa MẤT đi) không cần nữa
+	// (Tài khoản: Object: tên người dùng, sđt, mật khẩu, xác thực rồi)
 	// Anonymous struct so với OOP: (hỗ trợ -> có)
 	// field, data: hỗ trợ đầy đủ
 	// method, behavior: không hỗ trợ
@@ -103,7 +107,12 @@ func main() {
 	// Inheritance: hỗ trợ đầy đủ (cả data và method)
 	// Polymorphism: hỗ trợ 1 phần (chỉ data)
 
+	// Làm game: GTAV:
+	// character: lưu những nhân vật thành một Object (1 nhân vật sẽ là 1 hoặc nhiều file: vd: Franklin-eat.chr Franklin-jump.chr)
+	// Sẽ gọi object (nhân vật) ra GTAV.exe
+
 	// Polymorphism chỉ có ở field (data)
+
 	Jake.eat()
-	fmt.Println(Jake)
+	fmt.Println(Jake.isDog)
 }
