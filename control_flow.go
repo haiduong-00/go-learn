@@ -8,7 +8,7 @@ var y int
 
 func main() {
 	//Ứng dụng Go, C++ sẽ đọc (ở trong codeblock "{ }") từ trên xuống dưới, từ trái qua phải
-	//Còn ở ngoài codeblock nó đọc thế nào cũng được, và nó được đọc trước tiên khi vào chương trình
+	//Còn ở ngoài codeblock main nó đọc thế nào cũng được, và nó được đọc trước tiên khi vào chương trình
 	//Ở ngoài là khâu chuẩn bị sẵn sàng cho func main() hay codeblock khác
 	//sequence/flow of computer program
 	//JavaScript: env: environment
