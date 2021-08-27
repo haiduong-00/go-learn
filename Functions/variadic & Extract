@@ -13,7 +13,7 @@ func main() {
 	// append(x,y...)  // Gỡ hàng xuống để nhập vào
 }
 
-func sumAll(x ...int) int {
+func sumAll(n int,x ...int) int {
 	sumAll:=0
 	for _,v := range x {
 		sumAll += v
