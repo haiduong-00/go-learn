@@ -4,7 +4,7 @@ import "fmt"
 
 // func (r receiver) identifier(paramenters) (returns) { code }
 
-func main()  {
+func main() {
 	foo() // báo hiệu rằng đây là gọi function ra để CHẠY
 	// bar := foo  // báo hiệu rằng gắn ĐOẠN CODE của foo cho bar
 	// foo: (string:func ()  {
@@ -12,24 +12,25 @@ func main()  {
 	// } )
 	hi := "Hello"
 	Duong := "Duong"
-	bar(Duong,hi,18)
+	printWithContentin(Duong, hi, 18)
+	// greetings -> name ->  number
 	foo()
-	tong,hieu := addAndsubtract(5,8)
-	bar("là","Tổng",tong)
-	bar("là","Hiệu",hieu)
+	tong, hieu := addAndsubtract(5, 8)
+	printWithContentin("là", "Tổng", tong)
+	printWithContentin("là", "Hiệu", hieu)
 }
 
-func foo()  {
+func foo() {
 	fmt.Println("Hello, World!")
 }
 
-func bar(name, greetings string, num int)  { // greetings: Lời chào
-	fmt.Println(greetings,name,num)
+func printWithContentin(name, greetings string, num int) { // greetings: Lời chào
+	fmt.Println(greetings, name, num)
 	// (identifier type, identifier type)
 }
 
-func addAndsubtract(num1, num2 int) (int, int) {  // Cộng 2 số num1, num2 lại và trả kết quả (value) là tổng
-	return num1+num2,(num1-num2)
+func addAndsubtract(num1, num2 int) (int, int) { // Cộng 2 số num1, num2 lại và trả kết quả (value) là tổng
+	return num1 + num2, (num1 - num2)
 }
 
 // Hồi xưa: đoạn code là các dòng trên 1 trang giấy và 1 chương trình là nguyên 1 tờ
@@ -38,3 +39,4 @@ func addAndsubtract(num1, num2 int) (int, int) {  // Cộng 2 số num1, num2 l�
 // Package
 
 // Có suy nghĩ build func từ đầu chia nhỏ code: sẽ biết được sai ở đâu
+// JS, python (phổ biến nhất hiện nay): func quan trọng

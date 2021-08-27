@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+func main() {  //Flow - defer: làm ngược flow
+	program()
+	fmt.Println("exit code 0")
+
+	//File: JSON
+	// open()
+	// defer close()
+}
+
+func printGreeting() {
+	fmt.Println("Hello you, start using our service\n")
+}
+
+func printLastGreeting() {
+	fmt.Println("\nThank you for using our service. See you")
+}
+
+func program() int {
+	printGreeting()
+	defer printLastGreeting()
+	
+	// code
+	fmt.Println("You are using our service")
+	fmt.Println("You are using our service")
+	return 9  // trả về giá trị và kết thúc luôn
+	fmt.Println("You are using our service")
+	fmt.Println("You are using our service")
+	return 0
+}

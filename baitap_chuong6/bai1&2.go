@@ -26,12 +26,8 @@ func main() {
 		},
 	}
 	fmt.Println(HD, TH)
-	for i, v := range HD.favflavors {
-		fmt.Println(i, v)
-	}
-	for i, v := range TH.favflavors {
-		fmt.Println(i, v)
-	}
+	printfavflavors(HD)
+	printfavflavors(TH)
 
 	fmt.Println(TH)
 	m := map[string]person{
@@ -48,11 +44,15 @@ func main() {
 	}
 	for _, v := range m {
 		fmt.Println(v)
-		for i, v := range v.favflavors {
-			fmt.Println(i, v)
-		}
+		printfavflavors(v)
 	}
 	// v= HD, HD.favflavors
 	// v= TH, TH.favflavors
 	// map không sắp xếp
+}
+
+func printfavflavors(Obj person) {
+	for i, v := range Obj.favflavors {
+		fmt.Println(i, v)
+	}
 }

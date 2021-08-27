@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func main() {
+	// Variadic parameter (...): nhập bao nhiêu tùy thích
+	// ... gỡ hàng: Unfuerling a slice, extracting a slice
+	xi := []int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,100}
+	fmt.Print(sumAll(xi...))
+	// HTTP Request: package (gói) bao gồm rất nhiều data
+	// sumAll(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,100)
+
+	// append(x,y...)  // Gỡ hàng xuống để nhập vào
+}
+
+func sumAll(x ...int) int {
+	sumAll:=0
+	for _,v := range x {
+		sumAll += v
+	}
+	return sumAll
+}
