@@ -1,0 +1,86 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type square struct {
+	edge int
+}
+
+type circle struct {
+	radius int
+}
+
+type shape interface {
+	getAreaandPerimeter() (float64, float64) // Sẽ bao gồm những struc hay type nào có hành động get....
+}
+
+func (t square) getAreaandPerimeter() (float64, float64) {
+	return float64(t.edge * t.edge), float64(t.edge * 4)
+}
+
+func (t circle) getAreaandPerimeter() (float64, float64) {
+	return float64(t.radius*t.radius) * math.Pi, float64(t.radius) * 2 * math.Pi
+}
+
+func getAreaandPerimeter(t shape) {
+	switch t.(type) {
+	case square:
+		a, p := t.getAreaandPerimeter()
+		fmt.Println("Hình vuông có diện tích", a, "và chu vi", p)
+	case circle:
+		a, p := t.getAreaandPerimeter()
+		fmt.Printf("Hình tròn có diện tích %f và chu vi %f\n", a, p)
+	}
+}
+
+// Type assertion
+// Switch case
+
+func main() {
+	// Trong Go hay các ngôn ngữ khác: interface sẽ đại diện cho Runtime polymorphism
+	var Circle, Square shape
+	Circle = circle{ // chính là underlying type
+		radius: 10,
+	}
+	Square = square{
+		edge: 2,
+	}
+	// Thử gán circle vào anotherCircle xem gán theo giá trị (copy) hay gán theo địa chỉ (pointer)
+	anotherCicle := Circle.(circle) // Type assertion : dẫn đường cho Circle vào địa chỉ main.cirle
+	// Type conversion: type(variable, value)
+	anotherCicle.radius = 20
+	fmt.Println(anotherCicle)
+	fmt.Println(Circle)          //Type: main.shape
+	fmt.Println(Circle.(circle)) // Type: main.circle
+	// anotherCircle chỉ là copy của Circle
+
+	getAreaandPerimeter(Square)
+
+	//Anonymous func
+	(func(t shape) {
+		switch t.(type) {
+		case square:
+			a, p := t.getAreaandPerimeter()
+			fmt.Println("Hình vuông có diện tích", a, "và chu vi", p)
+		case circle:
+			a, p := t.getAreaandPerimeter()
+			fmt.Printf("Hình tròn có diện tích %f và chu vi %f\n", a, p)
+		}
+	}) (Square)
+
+	(func(t shape) {
+		switch t.(type) {
+		case square:
+			a, p := t.getAreaandPerimeter()
+			fmt.Println("Hình vuông có diện tích", a, "và chu vi", p)
+		case circle:
+			a, p := t.getAreaandPerimeter()
+			fmt.Printf("Hình tròn có diện tích %f và chu vi %f\n", a, p)
+		}
+	}) (Circle)
+
+	getAreaandPerimeter(Circle)
+}

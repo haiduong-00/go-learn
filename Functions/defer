@@ -4,9 +4,11 @@ import "fmt"
 
 func main() {  //Flow - defer: làm ngược flow
 	program()
-	fmt.Println("exit code 0")
-
-	//File: JSON
+	defer fmt.Println("exit code 0")
+	fmt.Println("exit code 1")
+	fmt.Println("exit code 2")
+	fmt.Println("exit code 3")
+	// File: JSON
 	// open()
 	// defer close()
 }
@@ -21,7 +23,7 @@ func printLastGreeting() {
 
 func program() int {
 	printGreeting()
-	defer printLastGreeting()
+	defer printLastGreeting()  //Sẵn sàng cái func
 	
 	// code
 	fmt.Println("You are using our service")
@@ -29,5 +31,6 @@ func program() int {
 	return 9  // trả về giá trị và kết thúc luôn
 	fmt.Println("You are using our service")
 	fmt.Println("You are using our service")
+	printGreeting()
 	return 0
 }

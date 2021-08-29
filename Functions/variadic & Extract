@@ -5,18 +5,30 @@ import "fmt"
 func main() {
 	// Variadic parameter (...): nhập bao nhiêu tùy thích
 	// ... gỡ hàng: Unfuerling a slice, extracting a slice
-	xi := []int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,100}
-	fmt.Print(sumAll(xi...))
+	xi := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 100}
+	fmt.Println(sumAll(2, 3, 4, 5, xi...))
 	// HTTP Request: package (gói) bao gồm rất nhiều data
 	// sumAll(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,100)
 
 	// append(x,y...)  // Gỡ hàng xuống để nhập vào
+
+	// func == f(x) -> f(x) =x2 + x + 1 = f(2) =7 f(3) = 13
+	// function: hàm số (trong toán học)
+	// Tại x =2 f(x) =7
+	// f(n,a,b,c,x...) = return 
+	// f(x,y) = x^2 +y^2 
+	// f() = 3+5 = 8
+	fmt.Println(printGreetings())
 }
 
-func sumAll(n int,x ...int) int {
-	sumAll:=0
-	for _,v := range x {
-		sumAll += v
+func sumAll(n int, a, b, c int, x ...int) int { // 1 func chỉ một variadic parameters
+	sumAll := 0
+	for _, v := range x {
+		sumAll += v  // sumAll = sumAll + v
 	}
 	return sumAll
+}
+
+func printGreetings() int {
+	return 3+5
 }

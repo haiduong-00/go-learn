@@ -1,0 +1,12 @@
+package main
+
+import "fmt"
+
+func main() {
+	// Có vài trường hợp muốn chạy luôn và 1 lần duy nhất chương trình, mà có parameter nhập vào
+	// Không tốn thời gian viết func sẵn, bộ nhớ lưu func sẵn đấy
+	func (window int) {
+		x:=window
+		fmt.Println(x)
+	} (4)
+}
