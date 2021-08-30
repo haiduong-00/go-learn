@@ -5,7 +5,6 @@ import (
 	// "math"
 )
 
-
 func main() {
 	// Function sẽ được đánh giá, được coi như 1 value, thì có thể gán cho 1 variable,.....
 	// f := func(x int) float64 {  // trở thành 1 expression để gán cho identifier
@@ -16,12 +15,14 @@ func main() {
 	// Rất có lợi cho closure
 	// Closure: đơn giản là limit the scope of variable (giới hạn cái scope của variable)
 	// Giảm sức nặng bộ nhớ
-	bar := addN(3)  // func env: sẽ chứa n 
+	bar := addN(3) // func env: sẽ chứa n
 	// Recursion
 	//  bar = func(x int) int {
 	// 		return x+n
-	// 		}	
+	// 		}
 	fmt.Println(bar(5))
+
+	// foo := addN(4) // func env != func env của bar
 
 	// // Dựa vào ý đồ mình xây dựng func để làm gì: return sẽ có giá trị trả về (kết quả) tùy thuộc
 	// opDice := func (n int) int { // gọi ra cái int để chứng minh func expression có thể ở rất nhiều loại: có thể có return hoặc không, có thể có para hoặc không
@@ -32,19 +33,55 @@ func main() {
 	// fmt.Println(y)
 	// fmt.Println(opDice(5))
 
-
-	// f(x) = x^2 + x +1 = f(2) = return 
+	// f(x) = x^2 + x +1 = f(2) = return
 	// 1 nguyên tắc sử dụng return: phải liên quan đến các câu lệnh trong hàm số (func) đó
+		run()
 }
 
-func addN(NumIn int) func (x int) int {  // NumIn= 5
+func addN(NumIn int) func(x int) int { // NumIn= 5
 	// n := NumIn  // n =5
-	return ( func(x int) int {
-		return x+NumIn
-	}	)
-} 
+	return (func(x int) int {
+		return x + NumIn
+	})
+}
 
 // func foo() int {
 // 	fmt.Println("foo")
 //  return 0
 // }
+
+// Callback
+
+func FindOdd(x ...int) []int {
+	odd := []int{}
+	for _, v := range x {
+		if v%2 != 0 {
+			odd = append(odd, v)
+		}
+	}
+	return odd
+}
+
+func sumofOdd(odd func(x ...int) []int) int {
+	sumofOdd := 0
+	oddNum := odd(1,2,3,4,5,6,7,8,9)
+	for _, v := range oddNum {
+		sumofOdd += v
+	}
+	return sumofOdd
+}
+
+func run()  {
+	fmt.Println(sumofOdd(FindOdd))
+}
+
+// Google :
+// Go (Cloud compute, manage rig), DevOps
+// python (xây dựng chương trình cho máy tính bậc cao),  AI 
+// C++ (xây dựng ứng dụng cho máy tính bậc thấp)
+// Java (bảo trì Android?, linux, dựa vào Java)
+// JS/TS (xây dựng website, hệ thống bậc cao)
+// Kotlin(lập trình ứng dụng Android) 
+// bash, shell (điều khiển rig)
+
+// JS/TS: bảo trì nền, Go, Ruby: quản lý hệ thống repo: GitHub
