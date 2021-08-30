@@ -15,7 +15,7 @@ func main() {
 	// Rất có lợi cho closure
 	// Closure: đơn giản là limit the scope of variable (giới hạn cái scope của variable)
 	// Giảm sức nặng bộ nhớ
-	bar := addN(3) // func env: sẽ chứa n
+	bar := addN(3) // func env: sẽ chứa n; codeblock C++: quen với JS
 	// Recursion
 	//  bar = func(x int) int {
 	// 		return x+n
