@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func find_fact(N int) int {
+	Gt:=1
+	for i:=1;i<=N;i++ { // Index so với Value  range qua x: i < len(x)  O(1)
+		Gt=i*Gt
+
+	}
+	return Gt 
+}
+func main() {
+	// := []int{1,2,3,4,5,6,7 }
+	fmt.Println(find_fact(6))
+}

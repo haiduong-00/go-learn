@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func foo(x ...int) int {
+	T := 0
+	for _, v := range x {
+		T = T + v
+	}
+
+	return T
+}
+func main() {
+	a := []int{1234, 234, 456, 567}
+	fmt.Println(foo(a...))
+}
