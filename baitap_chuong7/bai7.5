@@ -1,0 +1,39 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type square struct {
+	L float64
+}
+type circle struct {
+	r float64
+}
+
+func (c circle) area() float64 {
+	return math.Pi * math.Pow(c.r, 2)
+}
+func (s square) area() float64 {
+	return s.L * s.L
+
+}
+
+type shape interface {
+	area() float64
+}
+
+func info(s shape) {
+	fmt.Println(s.area())
+}
+func main() {
+	circle := circle{
+		r: 4,
+	}
+	square := square{
+		L: 4,
+	}
+	info(circle)
+	info(square)
+}
