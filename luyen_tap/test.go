@@ -14,13 +14,11 @@ func check(e error) {
 }
 
 type testIn []struct {
-	N int `json:"N"`   // Change me
-	Arr []int `json:"Arr"`
+	N int `json:"N"`   //Change me
 }
 
 type testOut []struct {
-	Output1 int `json:"Output1"`   // Change me
-	Output2 int `json:"Output2"`
+	Output string `json:"Output"`  //Change me
 }
 
 func ReadIn() (testIn, testOut) {
@@ -44,17 +42,25 @@ func ReadIn() (testIn, testOut) {
 }
 
 // Put func here
-func EvenOddSum(N int, Arr []int) (int, int) {
-	even, odd := 0, 0
-	for i := 1; i <= N; i++ {
-		if i%2 == 0 {
-			odd += Arr[i-1]
+
+
+func is_palindrome(n int) string {
+	x := []int{}
+	for n >= 10 {
+		x = append(x, n%10)
+		n = n / 10
+	}
+	x = append(x, n)
+	for i := len(x) / 2; i >= 0; i-- {
+		if x[i] == x[len(x)-1-i] {
 		} else {
-			even += Arr[i-1]
+			return "No"
 		}
 	}
-	return odd, even
+	return "Yes"
 }
+
+
 // End func
 
 func main() {
@@ -64,11 +70,11 @@ func main() {
 		//Put func here
 
 		start := time.Now()
-		result1,result2 := EvenOddSum(testIn[i].N,testIn[i].Arr)
+		result := is_palindrome(testIn[i].N)        // Change me
 		elapsed := time.Since(start)
 
 		// End func
-		if (result1== testOut[i].Output1) && (result2 ==testOut[i].Output2) && (elapsed.Seconds() <= 1) {
+		if (result == testOut[i].Output) && (elapsed.Seconds() <= 1) {   // Change me
 			fmt.Println("Passed test", i+1, "after:", elapsed)
 		}
 	}

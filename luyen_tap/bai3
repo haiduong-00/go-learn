@@ -1,0 +1,15 @@
+package main
+
+import "fmt"
+
+func oddEven(N int) string {
+	if N%2 == 0 {
+		return "even"
+	} else {
+		return "odd"
+	}
+}
+func main() {
+	N := 1001
+	fmt.Println(oddEven(N))
+}
