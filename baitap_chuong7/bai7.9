@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	fmt.Println(b(return18))
+
+}
+func return18() int {
+	return 18
+}
+
+// func a(x int) int
+func b(tuoi18 func() int) int {
+	return tuoi18()
+}

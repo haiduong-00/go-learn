@@ -50,7 +50,7 @@ func addN(NumIn int) func(x int) int { // NumIn= 5
 //  return 0
 // }
 
-// Callback
+// Callback: nhập vào parameter 1 cái func khác
 
 func FindOdd(x ...int) []int {
 	odd := []int{}

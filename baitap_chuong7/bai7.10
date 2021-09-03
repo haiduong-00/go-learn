@@ -1,0 +1,19 @@
+package main
+
+import "fmt"
+
+func sn() func(x int) int {
+	poo := 18
+	return func(x int) int {
+		poo +=x // trong func env của bar lúc đấy là 23
+		return poo
+	}
+
+}
+func main() {
+	bar := sn()  // func env
+	fmt.Println(bar(5))
+	foo := sn()  // func env
+	fmt.Println(foo(10))
+	fmt.Println(bar(10))
+}
