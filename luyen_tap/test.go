@@ -32,11 +32,9 @@ func ReadIn() (testIn, testOut) {
 	var testIn testIn
 	var testOut testOut
 
-	Decod := json.NewDecoder(fi)
-	Decod.Decode(&testIn)
+	json.NewDecoder(fi).Decode(&testIn)
 
-	Decod = json.NewDecoder(fo)
-	Decod.Decode(&testOut)
+	json.NewDecoder(fo).Decode(&testOut)
 
 	return testIn, testOut
 }

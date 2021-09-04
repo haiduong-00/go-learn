@@ -1,0 +1,62 @@
+// Nói về những package mới
+// fmt, math
+// encoding/json, os, io, bcrypt
+
+// JSON encoding (để nén dữ liệu cho 1 hoặc 1 vài chương trình xử lý được)
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+
+type testIn []struct {
+	N int `json:"N"`   //Change me
+}
+
+
+func main()  {
+	jsonFin := []byte(`[
+		{
+			"N": 5
+		},
+		{
+			"N": 37
+		},
+		{
+			"N": 636
+		},
+		{
+			"N": 98
+		},
+		{
+			"N": 965
+		},
+		{
+			"N": 123
+		},
+		{
+			"N": 404
+		},
+		{
+			"N": 77
+		},
+		{
+			"N": 999
+		},
+		{
+			"N": 0
+		}
+	]`)
+	var Test testIn
+
+	// Muốn xuất 1 tên hay gì đó ra: Sử dụng tên với chữ cái đầu viết hoa
+	// Chữ cái đầu viết hoa của 1 identifier => cái identifier đấy có thể xuất ra ngoài package
+	err := json.Unmarshal(jsonFin,&Test)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(Test[3].N)
+}
