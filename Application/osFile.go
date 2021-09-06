@@ -11,17 +11,25 @@ import (
 
 func check(err error) {
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
 	}
 }
 
 func main() {
-	fo, err := os.Open("hello.json")
+	fo, err := os.Create("out.json")
+	check(err)
 	defer fo.Close()
-	check(err)
+	// Marshal (json) + write
+	// Encode
+	json.NewEncoder(fo).Encode(42)
+	byteIn := make([]byte, 2)
+	fo.Read(byteIn)
+	fmt.Println(byteIn)
 	var numIn int
-	err = json.NewDecoder(fo).Decode(&numIn)
+	err = json.Unmarshal(byteIn, &numIn)
 	check(err)
-	fmt.Printf("%v %T\n", numIn, numIn)
-	fmt.Println(fo.Name())
+	fmt.Println(numIn)
 }
+
+// Open: read, execute
+// Create: tao moi 1 file trong: write read execute

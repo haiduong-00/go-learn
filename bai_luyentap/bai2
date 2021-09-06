@@ -1,0 +1,10 @@
+package main
+import ("fmt")
+func sum_of_ap(n,a,d int)int{
+	T:= ((a+a+(n-1)*d)*n)/2
+	return T
+}
+func main(){
+	fmt.Println(sum_of_ap(5 ,1 ,3))
+	
+}
