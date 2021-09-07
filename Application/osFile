@@ -1,0 +1,55 @@
+// os package: package mà giao tiếp trục tiếp với hệ thống
+// os thường nhập vào để xử lý file từ bên ngoài, xuất file
+
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+)
+
+func check(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
+func main() {
+	fo, err := os.Create("out.json")
+	check(err)
+	defer fo.Close()
+	// Marshal (json) + write
+	// Encode
+	// Decode
+	// Unmarshal
+	Decod := json.NewEncoder(fo)
+	Decod.Encode(42)
+	// var byteIn []byte
+	_, err = fo.Seek(-2, 2)
+	check(err)
+	// n,err:=fo.ReadAt(byteIn,6)
+	byteInNew, err := io.ReadAll(fo)
+	check(err)
+	fmt.Println(byteInNew)
+	var numIn int
+	err = json.Unmarshal(byteInNew, &numIn)
+	check(err)
+	fmt.Println(numIn)
+}
+
+// Open: read, execute
+// Create: tao moi 1 file trong: write read execute
+
+// func main()  {
+// 	fo,err := os.Open("out.json")
+// 	check(err)
+// 	byteIn, err := io.ReadAll(fo)
+// 	check(err)
+// 	fmt.Println(byteIn)
+// 	var numIn int
+// 	err = json.Unmarshal(byteIn,&numIn)
+// 	check(err)
+// 	fmt.Println(numIn)
+// }
