@@ -12,6 +12,7 @@ type student []struct {
 	score float64
 }
 
+
 func (t student) Len() int {
 	return len(t)
 }
@@ -40,7 +41,7 @@ func main() {
 	var stringIn []string
 	err = json.NewDecoder(fi).Decode(&stringIn)
 	check(err)
-
+	
 	fmt.Println(stringIn)
 
 	dsHocsinh := student{
