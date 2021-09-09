@@ -14,9 +14,8 @@ func check(e error) {
 }
 
 type testIn []struct {
-	N int `json:"N"` //Change me
-	A int `json:"A"`
-	D int `json:"D"`
+	Num1 int `json:"Num1"` //Change me
+	Num2 int `json:"Num2"`
 }
 
 type testOut []struct {
@@ -43,11 +42,11 @@ func ReadIn() (testIn, testOut) {
 
 // Put func here
 
-func sum_of_ap(n,a,d int)int{
-	T:= ((a+a+(n-1)*d)*n)/2
-	return T
-}
 
+func findRemainder(num1, num2 int) int {
+	x := num1 % num2
+	return x
+}
 
 
 // End func
@@ -59,7 +58,7 @@ func main() {
 		//Put func here
 
 		start := time.Now()
-		result := sum_of_ap(testIn[i].N,testIn[i].A,testIn[i].D)        // Change me
+		result := findRemainder(testIn[i].Num1,testIn[i].Num2)        // Change me
 		elapsed := time.Since(start)
 
 		// End func

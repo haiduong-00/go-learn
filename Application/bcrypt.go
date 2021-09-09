@@ -27,7 +27,7 @@ func main() {
 	check(err)
 	fmt.Println(string(Pscrypt))
 
-	Login := []byte(`Hello`)
+	Login := []byte(`Hello1`)
 	// Logincrypt,err := bcrypt.GenerateFromPassword(Login,12)
 	check(err)
 	err = bcrypt.CompareHashAndPassword(Pscrypt,Login)

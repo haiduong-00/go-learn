@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+	"golang.org/x/crypto/bcrypt"
+)
+func check(err error){
+	if err!=nil{
+		panic(err)
+	}
+}
+func main(){
+	Ps:=[]byte(`2212`)
+	Pscrypt,err :=bcrypt.GenerateFromPassword(Ps,22)
+	check(err)
+	fmt.Println(string(Pscrypt))
+
+
+	Login:=[]byte(`2212`)
+	
+	check(err)
+	err =bcrypt.CompareHashAndPassword(Pscrypt,Login)
+	check(err)
+	if err==nil{
+		fmt.Println("Login Access")
+	}
+}

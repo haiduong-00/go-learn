@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+	xa := []int{99, 33, 55, 77, 88}
+	xb := []string{"hai", "duong", "anh"}
+
+	fmt.Println(xa)
+	sort.Ints(xa)
+	fmt.Println(xa)
+	fmt.Println("-------")
+	fmt.Println(xb)
+	sort.Strings(xb)
+	fmt.Println(xb)
+}

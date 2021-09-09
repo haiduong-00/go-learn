@@ -1,0 +1,11 @@
+package main
+
+import "fmt"
+
+func findRemainder(num1, num2 int) int {
+	x := num1 % num2
+	return x
+}
+func main() {
+	fmt.Println(findRemainder(5,10))
+}
