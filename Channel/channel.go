@@ -27,3 +27,11 @@ func main() {
 	}()
 	wg.Wait()
 }
+
+
+// Ví dụ nhỏ về channel:
+// Login: nếu có xác thực 2 bước
+// Tất cả những thứ sau đây đều chạy Parallelism:
+// Trang web sẽ tạo code: sản xuất xong code rồi
+// Trang web khởi động hệ thống kiểm tra code: code mẫu, chỉ chờ code từ người dùng
+// Trang web tạo trang nhập code người dùng
