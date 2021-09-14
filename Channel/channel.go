@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 // Channel trong Concurrency
@@ -13,12 +14,16 @@ import (
 
 func main() {
 	c := make(chan int) //
-	quit := make(chan bool)
-	c <- 42
-	fmt.Println("Wait")
+	var wg sync.WaitGroup
+	wg.Add(2)
 	go func() {
-		fmt.Println(<-c)
-		quit <- true
+		c <- 42
+		fmt.Println(<-c)  
+		wg.Done()
 	}()
-	<- quit 
+	go func() {
+		c <- 38
+		wg.Done()
+	}()
+	wg.Wait()
 }
