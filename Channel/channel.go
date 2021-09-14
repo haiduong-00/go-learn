@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
 )
 
 // Channel trong Concurrency
@@ -14,27 +12,20 @@ import (
 // Code bên dưới là 1 ví dụ về việc routine main không thể sản xuất
 // Khi sản xuất muốn thu hồi lại sản phẩm: buffered channel: queue
 // *Vì nếu có công việc thay ca, và sắp xếp việc sao cho channel có hàng: routine có thể thay ca nhau
+// Muốn strict ca: routine này chỉ làm việc này, routine kia chỉ làm việc kia: Directional Channel: Send (sản xuất), Receive(Lấy, Nhận)
+// Channel bình thường (General) thì có thể chuyển qua Directional Channel
+// Directional Channel thì KHÔNG thể chuyển về dạng Channel bình thường (General)
 
 func main() {
 	c := make(chan int)
-	var wg sync.WaitGroup
-	wg.Add(3)
-	go func() {
-		c <- 411
-		time.Sleep(time.Second*2)
-		fmt.Println(<-c)
-		wg.Done()
-	}()
-	go func() {
-		fmt.Println(<-c)
-		c <- 55
-		wg.Done()
-	}()
-	go func() {
-		time.Sleep(time.Second)
-		fmt.Println(<-c)
-		c<-32
-		wg.Done()
-	}()
-	wg.Wait()
+	go SendOnly(c)
+	Receive(c)
+}
+
+func SendOnly(c chan<- int) {
+	c <- 42
+}
+
+func Receive(c <-chan int) {
+	fmt.Println(<-c)
 }
