@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 )
 
 // Range: for
@@ -15,19 +16,24 @@ import (
 
 func main() {
 	c := make(chan int)
+	var wg sync.WaitGroup
+	wg.Add(2)
 	go func() {
 		for i := 0; i < 10; i++ {
 			c <- i
 		}
 		close(c)   // Cái close này sẽ đóng channel lại trước
+		wg.Done()
 	}()
 	go func() {
 		for i:= 10; i<21; i++{
-			c <-i
+			c <-i	// Do cái này chạy sau cái close(c) ở trên => panic: send on closed channel
 		}
 		close(c)
+		wg.Done()
 	}()
 	for v := range c {
 		fmt.Println(v)
 	}  // Kết thúc khi channel bị đóng
+	wg.Wait() // Thử chờ cho các routine chạy hết
 }
