@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 // Đã từng học về Switch: tùy thuộc vào điều kiện của các case: mà sẽ chạy câu lệnh đó
@@ -13,7 +14,7 @@ func main() {
 	even := make(chan int)
 	AddOddandEven(odd, even)
 	for {
-
+		time.Sleep(time.Nanosecond * 5)
 		select {
 		case v := <-odd:
 			fmt.Println("This is odd number:", v)
