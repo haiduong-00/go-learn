@@ -2,38 +2,22 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 // Đã từng học về Switch: tùy thuộc vào điều kiện của các case: mà sẽ chạy câu lệnh đó
 // Select khá là tương tự, nhưng có 1 đặc điểm là dùng cho kiểm tra channel
 // Select sẽ lọc ra sản phẩm đó đến từ channel nào
 
-func main() {
-	odd := make(chan int)
-	even := make(chan int)
-	AddOddandEven(odd, even)
-	for {
-		time.Sleep(time.Nanosecond * 5)
-		select {
-		case v := <-odd:
-			fmt.Println("This is odd number:", v)
-		case v := <-even:
-			fmt.Println("This is even number:\t", v)
-		default:
-			return
-		}
-	}
-}
+// Ok: check for channel: check xem channel đã bị đóng chưa
 
-func AddOddandEven(odd, even chan<- int) {
-	go func() {
-		for i := 1; i < 101; i++ {
-			if i%2 == 0 {
-				even <- i
-			} else {
-				odd <- i
-			}
-		}
+func main() {
+	c := make(chan int)
+	go func ()  {
+		c <- 42
 	}()
+	v,ok:= <-c
+	fmt.Println(v,ok)
+	close(c)  // Đóng channel
+	v,ok= <-c
+	fmt.Println(v,ok)
 }
