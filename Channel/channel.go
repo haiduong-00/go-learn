@@ -16,7 +16,7 @@ import (
 // Channel bình thường (General) thì có thể chuyển qua Directional Channel
 // Directional Channel thì KHÔNG thể chuyển về dạng Channel bình thường (General)
 
-func main() {
+func Channel() {
 	c := make(chan int)
 	go SendOnly(c)
 	Receive(c)
