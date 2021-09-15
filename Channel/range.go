@@ -19,9 +19,15 @@ func main() {
 		for i := 0; i < 10; i++ {
 			c <- i
 		}
-		
+		close(c)   // Cái close này sẽ đóng channel lại trước
+	}()
+	go func() {
+		for i:= 10; i<21; i++{
+			c <-i
+		}
+		close(c)
 	}()
 	for v := range c {
 		fmt.Println(v)
-	}
+	}  // Kết thúc khi channel bị đóng
 }
