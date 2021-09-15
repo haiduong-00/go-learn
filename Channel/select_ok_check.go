@@ -11,13 +11,41 @@ import (
 // Ok: check for channel: check xem channel đã bị đóng chưa
 
 func main() {
-	c := make(chan int)
-	go func ()  {
-		c <- 42
+	odd := make(chan int)
+	even := make(chan int)
+	AddOddandEven(odd, even)
+	for {
+		select {
+		case v, ok := <-odd:
+			if ok {
+				fmt.Println("This is odd number:", v)
+			} else {
+				continue
+			}
+		case v, ok := <-even:
+			if ok {
+				fmt.Println("This is even number:\t", v)
+			} else {
+				if _, ok := <-odd; !ok {
+					return
+				} else {
+					continue
+				}
+			}
+		}
+	}
+}
+
+func AddOddandEven(odd, even chan<- int) {
+	go func() {
+		for i := 1; i < 101; i++ {
+			if i%2 == 0 {
+				even <- i
+			} else {
+				odd <- i
+			}
+		}
+		close(odd)
+		close(even)
 	}()
-	v,ok:= <-c
-	fmt.Println(v,ok)
-	close(c)  // Đóng channel
-	v,ok= <-c
-	fmt.Println(v,ok)
 }
