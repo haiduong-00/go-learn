@@ -14,7 +14,7 @@ import (
 // Trong Channel (Linked list): nó chỉ có điểm đầu điểm cuối của dãy, trong dãy đấy có các gói hàng (node), cái node này chứa: hàng (data), địa chỉ tới gói hàng tiếp theo (pointer to next node)
 // Channel không có index || key => Range của channel chỉ cần 1 giá trị
 
-func main() {
+func Range() {
 	c := make(chan int)
 	var wg sync.WaitGroup
 	wg.Add(2)
