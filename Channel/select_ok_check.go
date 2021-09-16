@@ -10,7 +10,7 @@ import (
 
 // Ok: check for channel: check xem channel đã bị đóng chưa
 
-func main() {
+func SelectandOk() {
 	odd := make(chan int)
 	even := make(chan int)
 	AddOddandEven(odd, even)
