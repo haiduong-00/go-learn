@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"time"
 )
@@ -22,7 +23,7 @@ func (t err) Error() string  {
 
 func main()  {
 	err := err{
-		mainerr: fmt.Errorf("Lỗi"),
+		mainerr: errors.New("Lỗi"),
 		when: time.Now(),
 	}
 	panic(err)
