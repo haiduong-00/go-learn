@@ -6,7 +6,7 @@ import "fmt"
 // Cái này được sử dụng để giữ cho panic không gây panicking đến caller nào đó
 // recover chỉ chạy khi đi kèm defer
 
-func main() {
+func HowtoUseRecover() {
 	foo()
 	fmt.Println("Hello")
 }
