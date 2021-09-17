@@ -15,11 +15,12 @@ import (
 
 func check(err error) {
 	if err != nil {
-		log.Panic(err) // Đặc biệt log còn có thể tạo ra 1 file log riêng
+		log.Fatal(err) // Đặc biệt log còn có thể tạo ra 1 file log riêng
 	}
 }
 
 func main() {
 	err := fmt.Errorf("một lỗi gì đấy")
 	check(err)
+	fmt.Println("Hello")
 }
