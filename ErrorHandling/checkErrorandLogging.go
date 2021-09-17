@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 )
 
 // Practice: Thói quen tốt: Check lỗi liên tục (nhưng có vài trường hợp ngoại lệ)
@@ -15,11 +16,15 @@ import (
 
 func check(err error) {
 	if err != nil {
-		log.Println(err)
+		log.Println(err) // Đặc biệt log còn có thể tạo ra 1 file log riêng
 	}
 }
 
 func main() {
-	err := fmt.Errorf("một lỗi nào đấy")
+	flog, err := os.Create("log.txt")
+	check(err)
+	defer flog.Close()
+	log.SetOutput(flog)
+	err = fmt.Errorf("một lỗi nào đấy")
 	check(err)
 }
