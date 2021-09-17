@@ -2,13 +2,21 @@ package main
 
 import "fmt"
 
+// recover(): câu lệnh để:
+// Cái này được sử dụng để giữ cho panic không gây panicking đến caller nào đó
+// recover chỉ chạy khi đi kèm defer
+
 func main() {
-	fmt.Println(foo(1))
+	foo()
+	fmt.Println("Hello")
 }
 
-func foo(i int) (y int) {
+func foo() {
+	err := fmt.Errorf("một lỗi nữa")
 	defer func ()  {
-		y++
+		fmt.Println("Vẫn chạy")
+		recover()
 	}()
-	return i 
+	check(err)
+	fmt.Println("Có chạy không")
 }
