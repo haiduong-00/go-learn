@@ -13,6 +13,8 @@ import (
 // log.Panic(), panic() (Gây ra panicking, ảnh hưởng đến function và caller gọi ra function đó, theo hiệu ứng Domino)
 // log.Fatal()  (Buộc dừng process ngay lập tức)
 
+// Chơi không lại, đái vào server (rút điện server)
+
 func check(err error) {
 	if err != nil {
 		log.Fatal(err) // Đặc biệt log còn có thể tạo ra 1 file log riêng
