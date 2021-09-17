@@ -52,7 +52,7 @@ func (t loi) Error() string {
 	return fmt.Sprintln("Hello World!")
 }
 
-func main() {
+func ErrorHandling() {
 	err := loi{"What",time.Now()}
 	fmt.Printf("%T %v",err,err)
 }
