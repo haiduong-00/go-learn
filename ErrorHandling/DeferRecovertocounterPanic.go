@@ -3,11 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	foo()
+	fmt.Println(foo(1))
 }
 
-func foo() {
-	err := fmt.Errorf("một lỗi nữa")
-	defer fmt.Println("Vẫn chạy")
-	check(err)
+func foo(i int) (y int) {
+	defer func ()  {
+		y++
+	}()
+	return i 
 }
