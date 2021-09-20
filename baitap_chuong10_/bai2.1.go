@@ -11,6 +11,7 @@ func main() {
 		cr <- 42
 	}()
 	fmt.Println(<-cr)
+	fmt.Print(cr)
 
 	fmt.Printf("------\n")
 	fmt.Printf("cr\t%T\n", cr)
