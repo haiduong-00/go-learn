@@ -17,4 +17,5 @@ vd: TestHuman_Eat để test method Eat() của struct Human
     + go test: để chạy tất cả đoạn test
     + go test -v: để theo dõi quá trình các test hoạt động (cho ra nhiều thông tin hơn)
 
-- Test không chỉ là 1 test riêng biệt mà còn có thể là một bảng test: và testqua từng test con
+- Test không chỉ là 1 test riêng biệt mà còn có thể là một bảng test: và testqua từng test con (Table test)
+- Trong VSCode có sẵn snippet cho điều này, và là tdt

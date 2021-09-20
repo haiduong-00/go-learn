@@ -1,21 +1,36 @@
 package palindrome
 
 import (
-	"fmt"
 	"testing"
 )
 
-func TestPalidrome_first(t *testing.T) {
-	re := is_palindrome(555)
-	if re != "Yes" {
-		t.Error("expected Yes, got",re) // Log then Fail (continue)
+func TestPalindrome(t *testing.T) {
+	testCases := []struct {
+		desc   string
+		N      int
+		Output string
+	}{
+		{
+			desc:   "123",
+			N:      123,
+			Output: "No",
+		}, {
+			desc:   "555",
+			N:      555,
+			Output: "Yes",
+		},
+		{
+			desc:   "404",
+			N:      404,
+			Output: "Yes",
+		},
 	}
-	fmt.Println("hello")
-}
-
-func TestPalidrome_second(t *testing.T) {
-	re := is_palindrome(12321)
-	if re != "Yes" {
-		t.Error("expected Yes, got",re)
+	for _, tC := range testCases {
+		t.Run(tC.desc, func(t *testing.T) {
+			re := is_palindrome(tC.N)
+			if re != tC.Output {
+				t.Error("expected ", tC.Output, ", got ", re)
+			}
+		})
 	}
 }
