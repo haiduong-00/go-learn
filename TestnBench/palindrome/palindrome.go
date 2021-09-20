@@ -1,6 +1,8 @@
+// Package palindrome để check dãy palind
 package palindrome
 
-func is_palindrome(n int) string {
+// IsPalindrome check xem số đó có phải palindrome không
+func IsPalindrome(n int) string {
 	x := []int{}
 	for n >= 10 {
 		x = append(x, n%10)

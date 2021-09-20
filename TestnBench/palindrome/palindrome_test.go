@@ -1,10 +1,11 @@
 package palindrome
 
 import (
+	"fmt"
 	"testing"
 )
 
-func TestPalindrome(t *testing.T) {
+func TestIsPalindrome(t *testing.T) {
 	testCases := []struct {
 		desc   string
 		N      int
@@ -27,10 +28,22 @@ func TestPalindrome(t *testing.T) {
 	}
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
-			re := is_palindrome(tC.N)
+			re := IsPalindrome(tC.N)
 			if re != tC.Output {
 				t.Error("expected ", tC.Output, ", got ", re)
 			}
 		})
 	}
+}
+
+func ExampleIsPalindrome() {
+	fmt.Println(IsPalindrome(555))
+	
+	//Output: Yes
+}
+
+func Example() {
+	fmt.Println(IsPalindrome(555))
+
+	//Output: Yes
 }
